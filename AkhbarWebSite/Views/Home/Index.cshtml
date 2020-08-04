@@ -1,11 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model IEnumerable<Category>
+@model IndexViewModel
 <section id="featured-services" class="featured-services">
     <div class="container" data-aos="fade-up">
         <div class="row">
-            @foreach (var item in Model)
+            @foreach (var item in Model.Categories)
             {
 
                 <partial name="_CategoryDisplayPartial" for="@item"/>

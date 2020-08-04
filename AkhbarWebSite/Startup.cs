@@ -15,6 +15,10 @@ using Microsoft.Extensions.Hosting;
 using AkhbarWebSite.Models;
 using AkhbarWebSite.IServices;
 using AkhbarWebSite.Services;
+using AutoMapper;
+using System.Reflection;
+using AkhbarWebSite.Validators;
+using FluentValidation.AspNetCore;
 
 namespace AkhbarWebSite
 {
@@ -33,6 +37,9 @@ namespace AkhbarWebSite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddControllers()
+               .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CategoryValidator>());
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AkhbarUsersConnection")));
