@@ -4,14 +4,16 @@ using AkhbarWebSite.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AkhbarWebSite.Migrations
 {
     [DbContext(typeof(AkhbarDbContext))]
-    partial class AkhbarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200807163212_add_auto_generated_guid")]
+    partial class add_auto_generated_guid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
